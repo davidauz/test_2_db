@@ -1,4 +1,4 @@
-You will need to run this script on your SQL Server:
+* Run this script on your SQL Server:
 
 <pre>
 USE master;
@@ -44,3 +44,40 @@ CREATE TABLE MSSQL_TABLE (
 );
 </pre>
 
+* And this other script in your mysql or mariadb server:
+
+<pre>
+DROP DATABASE IF EXISTS your_database_name;
+
+
+DROP USER IF EXISTS 'mysql_user'@'localhost';
+
+
+CREATE DATABASE IF NOT EXISTS testdb;
+
+CREATE USER 'mysql_user'@'localhost' IDENTIFIED BY 'mysql_password';
+
+GRANT USAGE ON *.* TO 'mysql_user'@'localhost' IDENTIFIED BY 'mysql_password';
+
+GRANT ALL PRIVILEGES ON testdb.* TO 'mysql_user'@'localhost';
+
+use testdb;
+
+
+
+DROP TABLE IF EXISTS mysqlTable;
+
+CREATE TABLE mysqlTable (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    column_long BIGINT,
+    column_date TIMESTAMP,
+    column_string VARCHAR(255)
+);
+
+DROP TABLE IF EXISTS testdb.hibernate_sequence;
+CREATE TABLE testdb.hibernate_sequence (next_val BIGINT) ENGINE=InnoDB;
+INSERT INTO testdb.hibernate_sequence (next_val) VALUES (1);
+
+
+COMMIT;
+</pre>

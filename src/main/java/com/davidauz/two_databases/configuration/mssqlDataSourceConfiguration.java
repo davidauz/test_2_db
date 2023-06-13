@@ -33,7 +33,6 @@ public class mssqlDataSourceConfiguration {
     @Primary
     @ConfigurationProperties("app.datasource.mssql")
     public DataSourceProperties MssqlTableDataSourceProperties() {
-        log.info("001");
         return new DataSourceProperties();
     }
 
@@ -41,7 +40,6 @@ public class mssqlDataSourceConfiguration {
     @Primary
     @ConfigurationProperties("app.datasource.mssql.configuration")
     public DataSource MssqlTableDataSource() {
-        log.info("002");
         return MssqlTableDataSourceProperties().initializeDataSourceBuilder()
                 .type(HikariDataSource.class).build();
     }
@@ -54,7 +52,6 @@ public class mssqlDataSourceConfiguration {
     @Primary
     @Bean(name = "MssqlTableEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean MssqlTableEntityManagerFactory(EntityManagerFactoryBuilder builder) {
-        log.info("003");
         Map<String, String> mssqlJpaProperties = new HashMap<>();
         mssqlJpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
         mssqlJpaProperties.put("hibernate.hbm2ddl.auto", "none");
@@ -70,7 +67,6 @@ public class mssqlDataSourceConfiguration {
     @Bean
     public PlatformTransactionManager MssqlTableTransactionManager(
             final @Qualifier("MssqlTableEntityManagerFactory") LocalContainerEntityManagerFactoryBean MssqlTableEntityManagerFactory) {
-        log.info("004");
         return new JpaTransactionManager(MssqlTableEntityManagerFactory.getObject());
     }
 
