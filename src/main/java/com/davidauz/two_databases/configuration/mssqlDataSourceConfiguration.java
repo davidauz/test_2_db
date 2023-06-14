@@ -22,9 +22,10 @@ import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.davidauz.two_databases.repository.mssqlRepos",
-        entityManagerFactoryRef = "MssqlTableEntityManagerFactory",
-        transactionManagerRef= "MssqlTableTransactionManager"
+@EnableJpaRepositories
+(   basePackages = "com.davidauz.two_databases.repository.mssqlRepos"
+,   entityManagerFactoryRef = "MssqlTableEntityManagerFactory"
+,   transactionManagerRef= "MssqlTableTransactionManager"
 )
 @Slf4j
 public class mssqlDataSourceConfiguration {
@@ -53,7 +54,7 @@ public class mssqlDataSourceConfiguration {
     @Bean(name = "MssqlTableEntityManagerFactory")
     public LocalContainerEntityManagerFactoryBean MssqlTableEntityManagerFactory(EntityManagerFactoryBuilder builder) {
         Map<String, String> mssqlJpaProperties = new HashMap<>();
-        mssqlJpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        mssqlJpaProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         mssqlJpaProperties.put("hibernate.hbm2ddl.auto", "none");
         mssqlJpaProperties.put("jpa.hibernate.ddl-auto", "none");
         return builder

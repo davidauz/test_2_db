@@ -2,7 +2,7 @@ package com.davidauz.two_databases.entity.mysqlentity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public class mysqlTable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 

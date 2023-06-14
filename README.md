@@ -51,11 +51,9 @@ CREATE TABLE MSSQL_TABLE (
 * And this other script in your mysql or mariadb server:
 
 <pre>
-DROP DATABASE IF EXISTS your_database_name;
-
+DROP DATABASE IF EXISTS testdb;
 
 DROP USER IF EXISTS 'mysql_user'@'localhost';
-
 
 CREATE DATABASE IF NOT EXISTS testdb;
 
@@ -66,8 +64,6 @@ GRANT USAGE ON *.* TO 'mysql_user'@'localhost' IDENTIFIED BY 'mysql_password';
 GRANT ALL PRIVILEGES ON testdb.* TO 'mysql_user'@'localhost';
 
 use testdb;
-
-
 
 DROP TABLE IF EXISTS mysqlTable;
 

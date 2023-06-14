@@ -2,7 +2,7 @@ package com.davidauz.two_databases.entity.mssqlentity;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 
 @Entity
 @Data

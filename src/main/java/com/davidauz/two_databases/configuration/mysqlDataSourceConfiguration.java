@@ -1,7 +1,7 @@
 package com.davidauz.two_databases.configuration;
 
 import com.davidauz.two_databases.entity.mysqlentity.mysqlTable;
-import org.apache.commons.dbcp.BasicDataSource;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -35,7 +35,7 @@ public class mysqlDataSourceConfiguration {
     @ConfigurationProperties("app.datasource.mysql.configuration")
     public DataSource mysqlTableDataSource() {
         return mysqlTableDataSourceProperties().initializeDataSourceBuilder()
-                .type(BasicDataSource.class).build();
+                .type(HikariDataSource.class).build();
     }
 
     @Bean(name = "mysqlTableEntityManagerFactory")
@@ -43,7 +43,7 @@ public class mysqlDataSourceConfiguration {
             EntityManagerFactoryBuilder builder) {
 
         Map<String, String> mysqlJPAProperties = new HashMap<>();
-        mysqlJPAProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
+        mysqlJPAProperties.put("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         mysqlJPAProperties.put("hibernate.hbm2ddl.auto", "none");
         mysqlJPAProperties.put("jpa.hibernate.ddl-auto", "none");
 
