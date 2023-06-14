@@ -8,7 +8,7 @@
         <version>2.1.5.RELEASE</version>
         <relativePath/>
     </parent>
-    <groupId>guru.springframework</groupId>
+    <groupId>com.davidauz</groupId>
     <artifactId>test_2_db</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>multiple-data-sources</name>

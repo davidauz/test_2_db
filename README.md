@@ -1,3 +1,7 @@
+<h1>Two different database in Spring Boot</h1>
+<p>This is nothing but a casual mess of copy pasted stuff but it connects to both a mySql (mariadb) server and a MSSQL server.</p>
+<p>To test it run the scripts below, start up the thing and head to <a href='http://localhost:8080/test'>localhost</a>.</p>
+<p></p>
 * Run this script on your SQL Server:
 
 <pre>

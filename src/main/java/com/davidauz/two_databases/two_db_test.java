@@ -6,10 +6,10 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 @SpringBootApplication(scanBasePackages={"com.davidauz.two_databases"})
 @EntityScan(basePackages={"com.davidauz.two_databases"})
-public class MultipledatasourcesApplication {
+public class two_db_test {
 
     public static void main(String[] args) {
-        SpringApplication.run(MultipledatasourcesApplication.class, args);
+        SpringApplication.run(two_db_test.class, args);
     }
 
 }
